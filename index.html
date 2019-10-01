@@ -11,7 +11,8 @@
 		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+		<!-- <link rel="stylesheet" href="lib/css/monokai.css"> -->
+		<link rel="stylesheet" href="lib/css/atom-one-dark.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -21,12 +22,402 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<style>
+			.avatar {
+				width: 180px;
+				height: 180px;
+				border-radius: 100%;
+				margin: .5em 0;
+			}
+
+			.reveal pre {
+				margin: 0 auto !important;
+				font-size: .75em !important;
+			}
+
+			.reveal pre code {
+				max-height: 700px !important;
+			}
+
+
+			.reveal .slides section .fragment.highlight-yellow,
+				.reveal .slides section .fragment.highlight-current-yellow {
+				opacity: 1;
+				visibility: inherit;
+			}
+
+			.reveal .slides section .fragment.highlight-yellow.visible {
+				color: #eef703 !important;
+			}
+
+			.reveal .slides section .fragment.highlight-yellow.visible > span {
+				color: #eef703 !important;
+			}
+
+			.reveal .slides section .fragment.highlight-current-yellow.current-fragment {
+				color: #eef703 !important;
+			}
+
+			.reveal .slides section .fragment.highlight-current-yellow.current-fragment > span {
+				color: #eef703 !important;
+			}
+
+			.reveal .slides > section.cm-title, .reveal .slides > section > section.cm-title {
+				min-height: 100% !important;
+				display: flex !important;
+				flex-direction: column !important;
+				justify-content: center !important;
+				position: absolute !important;
+				top: 0 !important;
+			}
+			section div.top {
+				position: absolute !important;
+				top: 0 !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
+				left: 0 !important;
+				right: 0 !important;
+			}
+
+			section div.bottom {
+				position: absolute !important;
+				bottom: 0 !important;
+				margin-left: auto !important;
+				margin-right: auto !important;
+				left: 0 !important;
+				right: 0 !important;
+			}
+
+			.meme {
+				font-family: impact !important;
+				font-size: 2.1em !important;
+				text-transform: uppercase !important;
+				color: white !important;
+				letter-spacing: -2px !important;
+				text-shadow:2px 2px 0 #000,
+				-2px -2px 0 #000,
+				2px -2px 0 #000,
+				-2px 2px 0 #000,
+				0px 2px 0 #000,
+				2px 0px 0 #000,
+				0px -2px 0 #000,
+				-2px 0px 0 #000,
+				2px 2px 5px #000 !important;
+			}
+
+			img.nostyle {
+				margin:0 !important;
+				background:none !important;
+			}
+
+			.bold {
+				font-weight:900 !important;
+			}
+
+			.nobold {
+				font-weight:normal !important;
+			}
+
+			.nomargin {
+				margin:0 !important;
+			}
+
+			.link {
+				text-decoration: underline;
+				color:#3884b9;
+			}
+
+			.li--blank {
+				list-style: none;
+			}
+
+			h5{
+				font-size:42px;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+			<div class="slides" style="top:40%;">
+
+				<section>
+					<img src="images/chris-profile.jpg" class="avatar" />
+					<h5 style="text-transform:lowercase;">@chrismarx</h5>
+					<h5 style="text-transform:lowercase;">bit.ly/anglr43</h5>
+					<img src="images/zross.png" style="height:100px" class="nostyle plain"/>
+					<aside class="notes">
+						Hi, I'm chris marx, slides are up now at that link. and quick plug, For those that don't know I work at zev ross
+						 spatial analysis, we're a local consulting group, we specialize in data science and geospatial or GIS projects, and
+						 of course web development?. Maybe show website? Projects?
+					</aside>
+				</section>
+
+				<section data-transition="zoom" data-background-video="images/endgame_clipped.mp4" data-background-video-loop data-background-video-muted class="cm-title">
+					<div style="color: #000; padding: 20px;" class="top">
+						<h2 class="meme">Typescript == Javascript</h2>
+					</div>
+					<div style=" color: #000; padding: 20px;" class="bottom">
+						<h2 class="meme">With Super Powers</h2>
+					</div>
+
+					<aside class="notes">
+						I'm talking today about Typescript, which is Javascript with super powers
+					</aside>
+				</section>
+
+				<section data-transition="slide-in" data-background-video="images/serenity.mov" data-background-video-loop data-background-video-muted class="cm-title">
+					<div style="color: #000; padding: 20px;" class="top">
+						<h2 class="meme">Super Powers from 2005</h2>
+					</div>
+					<div style=" color: #000; padding: 20px;" class="bottom">
+						<h2 class="meme">...still Joss Whedon ;)</h2>
+					</div>
+
+					<aside class="notes">
+						Well, super powers from like 2005 (the year the Serenity movie was released),
+						since we’re not actually talking about anything very new if you are comparing
+						this with java or c# or c++,, any statically typed language with good ide tooling.
+						And we ‘ll get into that more in a minute, but first,
+					</aside>
+				</section>
+
+				<section>
+					<h2>#TBT <del>1. Typescript</del></h2>
+					<div class="stretch">
+							<img src="images/typescript_coding.gif" style="height:60%; width:100%;"/>
+					</div>
+
+					<aside class="notes">
+						Quick throwback, I gave a talk here 2 years ago about angular, and took the opporutnity to also
+						champion typescript, and at the time it felt like a big limb that angular was climbing out on to.
+						But today, typescript is taking over, with either major libraries/projects
+						(anyone use vs code? Rxjs? Angular, vue, ionic,  nativescript, typeorm, )
+						being written in typescript, or nice up to date typings for the projects.
+						I’m the last person to push a microsoft project, I still use atom,
+						use ms for nothing, but this project is wonderful.
+					</aside>
+				</section>
+
+				<section data-transition="none"   >
+					<h2>Obligatory SO trends and NPM downloads</h2>
+					<video data-autoplay loop style="max-width:65%">
+					 <source data-src="images/so_trends.mov" />
+				  </video>
+					<img class="fragment" data-fragment-index="2" src="images/typescript_npm.png" style="position: absolute;top: 192px;left: 20px;" />
+
+					<aside class="notes">
+							Typescript is currently 10th most popular language for 2019. It's one of the most
+							loved languages and most wanted. The downloads on npm show typescript is being downloaded
+							and use wayyyy more than flow, and is even being downloaded more than babel or react.
+
+							Ok, how many people use javascript currently? What about typescript? Ok, and so angular
+							 is already written in typescript, where my angular fans at? Ok, and vue 3 is being
+							 rewritten entirely in typescript, how many people using vue? Typescript has already
+							 been supported as a built in option for vue since v2, but now the typescript experience
+							  in vue is going to get a whole lot better. And who’s using evil facebooks react?
+								 Seems like React has been slower to adopt typescript, afaik because facebook has been promoting flow,
+								  which is an alternate strategy for typing, but isn’t nearly as nice.
+									 However, now, even facebook create-react-app has added a tyepscript option so
+									 the hard parts of getting started with typescript are done for you.
+									 What about people using node on the backend? Or people who want to use node?
+					</aside>
+				</section>
+
+				<section data-transition="none" >
+					<h2>Typescript Is:</h2>
+					<ol class="stretch">
+						<li>A superset of Javascript</li>
+						<li class="fragment">A type checker</li>
+						<li class="li--blank">&nbsp;</li>
+						<li class="li--blank">&nbsp;</li>
+					</ol>
+
+					<aside class="notes">
+							1. A superset of javascript. That means all javascript is valid typescript, and unless
+							you enable stricter typing, with no anys, no nulls, etc.,
+							2. A type checker? Ok, let's see what these types are all about.
+					</aside>
+				</section>
+
+				<section>
+					<iframe data-preload data-src="https://codesandbox.io/s/great-yonath-cyxuc?fontsize=20" title="Javascript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
+					</iframe>
+
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+				<section>
+					<iframe data-preload data-src="https://codesandbox.io/s/typescript-starter-tf3v9?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
+					</iframe>
+
+					<aside class="notes">
+						- Part of the reason you don't see many differences is because typescript is also smart enough to do type inference
+						- Type inference says if you make a variable equal to a string, let's infer that it's a string. If you have a function
+						   that returns a promise, then let's assume it returns a promise. Which brings me to my next example. What if we wanted
+							 to get this greet value from an async service (like a rest api). Well, we could start by creating a promise that returns
+							 our value
+					</aside>
+				</section>
+
+				<section data-transition="none" >
+					<h2>Typescript Is:</h2>
+					<ol class="stretch">
+						<li>A superset of Javascript</li>
+						<li>A type checker</li>
+						<li class="fragment">A transpiler</li>
+					</ol>
+
+					<aside class="notes">
+							- A transpiler (like Babel), you get to write the javascript of tomorrow (es6/7/8/9/+) today. Async/await, decorators, class properties, access modifiers (public, private, protected,
+							help us implement Encapsulation, typescript has stating that they are likely to implement stage 3 js proposals (though we’re still waiting on optional chaining). Maybe show nestjs code here that has all these things? Exporting to es5, es6 levels, etc.
+								The future man, now (the future, now(today))- something cheasy like 3d in the 80s, maybe a tron reference (i got in!)  (daft punk for fun…)
+
+							- Additional types,  support for generics,  and class features, like abstract classes, interfaces, enums, everything you expect coming from java or other statically typed languages.
+					</aside>
+				</section>
+
+				<section>
+					<iframe data-preload data-src="https://codesandbox.io/s/typescript-starter-1hlrg?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
+					</iframe>
+
+					<aside class="notes">
+						- A transpiler (like Babel), you get to write the javascript of tomorrow (es6/7/8/9/+) today. Async/await, decorators, class properties, access modifiers (public, private, protected,
+						help us implement Encapsulation, typescript has stating that they are likely to implement stage 3 js proposals (though we’re still waiting on optional chaining). Maybe show nestjs code here that has all these things? Exporting to es5, es6 levels, etc.
+							The future man, now (the future, now(today))- something cheasy like 3d in the 80s, maybe a tron reference (i got in!)  (daft punk for fun…)
+
+						- Additional types,  support for generics,  and class features, like abstract classes, interfaces, enums, everything you expect coming from java or other statically typed languages.
+					</aside>
+				</section>
+
+				<section>
+					<iframe data-preload data-src="https://codesandbox.io/s/nest-typescript-starter-rxz0l?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
+					</iframe>
+
+					<aside class="notes">
+						- How about we make a rest api? Sure, here's the default nestjs cli generated project.
+						- Lets enable cors
+						- How about we return some json
+						- What about some expectation of what we're going to get back?
+					</aside>
+				</section>
+
+				<!-- <section>
+					<iframe id="demo-iframe" src="https://stackblitz.com/edit/typescript-s3dcsn?embed=1&file=index.ts&hideExplorer=1&hideNavigation=1&view=editor" style="width:95%;height:610px;background-color:white;">
+					</iframe>
+
+					<aside class="notes">
+					</aside>
+				</section> -->
+
+				<section data-transition="slide-in" data-background-video="images/star_wars_impressive.mp4" data-background-video-loop data-background-video-muted class="cm-title">
+
+
+					<aside class="notes">
+						Ok, time to go for the rest of the impressive parts, if all that wasn't impressive enough
+					</aside>
+				</section>
+
+				<section data-transition="none" >
+					<h2>Typescript Is:</h2>
+					<ol class="stretch">
+						<li>A superset of Javascript</li>
+						<li>A type checker</li>
+						<li class="fragment">A transpiler</li>
+					</ol>
+
+					<aside class="notes">
+							- A transpiler (like Babel), you get to write the javascript of tomorrow (es6/7/8/9/+) today. Async/await, decorators, class properties, access modifiers (public, private, protected,
+							help us implement Encapsulation, typescript has stating that they are likely to implement stage 3 js proposals (though we’re still waiting on optional chaining). Maybe show nestjs code here that has all these things? Exporting to es5, es6 levels, etc.
+								The future man, now (the future, now(today))- something cheasy like 3d in the 80s, maybe a tron reference (i got in!)  (daft punk for fun…)
+
+							- Additional types,  support for generics,  and class features, like abstract classes, interfaces, enums, everything you expect coming from java or other statically typed languages.
+					</aside>
+				</section>
+
+				<section data-transition="slide-in" data-background-video="images/ludicrous_speed.mov" data-background-video-loop data-background-video-muted class="cm-title">
+					<div style="color: #000; padding: 20px;" class="top">
+						<h2 class="meme">Ludicrous Speed Now!</h2>
+					</div>
+					<ol style="margin:0 auto">
+						<li class="fragment">Autocompletion</li>
+						<li class="fragment">Refactoring</li>
+						<li class="fragment">Type hints, Jump to Definition</li>
+						<li class="fragment">Easy Access Documentation</li>
+						<li class="fragment">Quick Fixes (auto imports, etc)</li>
+						<li class="fragment">Less Tests!</li>
+					</ol>
+
+					<aside class="notes">
+
+					</aside>
+				</section>
+
+				<section data-background-transition="zoom" data-background-image="images/mars_orbiter.jpg" data-background-size="100% 100%" class="cm-title">
+					<div style="color: #000; padding: 20px;" class="top">
+						<h2 class="meme">lb<sub>f</sub> &nbsp; !== &nbsp; N</h2>
+					</div>
+
+					<aside class="notes">
+						Now i could talk to you about the mars orbiter satellite that crashed into the mars atmosphere in 1999 because of a type error in the code (pounds of force were used as newtons (english vs metric)),
+						and how typescript will help you create better code for mission critical systems, but the reality is that most of us aren’t really working on systems like that.
+						 The real reason is that its just fun (inside out, gotta find the fun)
+					</aside>
+				</section>
+
+				<section data-transition="slide-in" data-background-video="images/inside_out_find_the_fun.mov" data-background-video-loop data-background-video-muted class="cm-title">
+					<div style="color: #000; padding: 20px;" class="top">
+						<h2 class="meme">You gotta </h2>
+					</div>
+					<div style=" color: #000; padding: 20px;" class="bottom">
+						<h2 class="meme">find the fun</h2>
+					</div>
+
+					<aside class="notes">
+ 						The real reason is that its just fun (inside out, gotta find the fun). You get all the shiny
+						new toys in javascript, and you can make changes and feel like you're not going to break everything,
+						you can take pride in your work, and try to make everything as type safe as possible (within limits).
+					</aside>
+				</section>
+
+				<section data-background-transition="zoom" data-background-image="images/waterworld.jpg" data-background-size="100% 100%" class="cm-title">
+					<div style="color: #000; padding: 20px;" class="top">
+						<h2 class="meme"><del>dry land</del> typescript takes longer</h2>
+					</div>
+					<div style=" color: #000; padding: 20px;" class="bottom">
+						<h2 class="meme">is a myth</h2>
+					</div>
+
+					<aside class="notes">
+						Poeple will say, but it takes longer because you have more typing. This is 100% wrong.
+						People will say it takes longer because you get errors. This is true, but you get the errors faster, and you arent waiting for an app to reload, and see errors in the javascript console or node terminal process. Seeing the errors while you type make it much faster overall
+						People will its harder to debug - wrong again, the support for debugging typescript is excellent with sourcemaps, you can debug your typescript right from the dev tools
+						“It’s only for big projects” - NO! Everytime I have to work on a non typescript project, i now pull my hair out at the lack of support for all of the above, especially auto completion and jumping to documentation.
+						 Maybe do a little demo here, live typing, what the fuck is htis thing, go to express docs, figure it out, etc., vs jump to definition, remmeber, oh thats how it works, and just keep going, never leave ur editor
+					</aside>
+				</section>
+
+
+				<section data-transition="slide-in" data-background-video="images/simpsons_fail.mp4" data-background-video-loop data-background-video-muted class="cm-title">
+					<div style="color: #000; padding: 20px;" class="top">
+					 <h2 class="meme">When things fail</h2>
+				 	</div>
+
+					<aside class="notes">
+ 						When things go wrong.
+						- Typings are out of date, so you have to any it, or work on pushing new typings. What are typings?
+						- But many times, its actually an error that typescript has caught, but the wording in the error is so confusing that it makes you think you have a bigger problem, lol.
+						- Sometimes it can be a problem with inferred classes, sometimes the compiler doesn't guess the right types, and you
+						have to help it.
+					</aside>
+				</section>
+
 			</div>
 		</div>
 
@@ -37,11 +428,15 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				history:true,
+				// minScale: .8,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					// Zoom in and out with Alt+click
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
 				]
 			});
 		</script>
