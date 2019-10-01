@@ -106,6 +106,10 @@
 				2px 2px 5px #000 !important;
 			}
 
+			.meme-small {
+				font-size: 1.4em !important;
+			}
+
 			img.nostyle {
 				margin:0 !important;
 				background:none !important;
@@ -135,6 +139,10 @@
 			h5{
 				font-size:42px;
 			}
+
+			.simpsons-fail.slide-background video{
+				object-fit: unset;
+			}
 		</style>
 	</head>
 	<body>
@@ -144,7 +152,7 @@
 				<section>
 					<img src="images/chris-profile.jpg" class="avatar" />
 					<h5 style="text-transform:lowercase;">@chrismarx</h5>
-					<h5 style="text-transform:lowercase;">bit.ly/anglr43</h5>
+					<h5 style="text-transform:lowercase;">http://bit.ly/typepres</h5>
 					<img src="images/zross.png" style="height:100px" class="nostyle plain"/>
 					<aside class="notes">
 						Hi, I'm chris marx, slides are up now at that link. and quick plug, For those that don't know I work at zev ross
@@ -241,26 +249,53 @@
 				</section>
 
 				<section>
-					<iframe data-preload data-src="https://codesandbox.io/s/great-yonath-cyxuc?fontsize=20" title="Javascript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+					<iframe src="https://codesandbox.io/s/great-yonath-cyxuc?fontsize=20" title="Javascript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
 							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
 					</iframe>
 
 					<aside class="notes">
-
+						- ok, before we look at types, lets just look at a vanilla es6 mini app here
+						- we've got a greeter class, with a constructor and one method
+						- we can call that one method, and update our app, and now we're greeting chris
+						- ok, lets make it just a tiny bit more interesting, lets have a list of people we want to greet
+						  and every second greet a new person. We can do that really easily with a little rxjs magic. for
+							those people not using rxjs, you can think of it as a way to handle a stream of promises.
+						- in this case, we kinda faking the promise part, but you could image you were getting a new value asynchronously
+						  every second, and than we have to do something with it.
+						- Immediately we can see problems with this. Javascript doesnt care about adding numbers and strings
+						- It doesnt care about sending things that are not strings to our function thats only setup to deal with strings
+						- and if we uncomment the end, it wont complain about non existent methods until runtime
+						- and will fail with undefined if we forget the mandatory constructor argument.
 					</aside>
 				</section>
 
 				<section>
-					<iframe data-preload data-src="https://codesandbox.io/s/typescript-starter-tf3v9?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+					<iframe src="https://codesandbox.io/s/typescript-starter-tf3v9?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
 							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
 					</iframe>
 
 					<aside class="notes">
+						- And here's the typescript version. Not very different.
+						- We can see a few differences, we have class properties with is an es7 feature i believe, I'll talk about typescript as a transpiler next.
+						- We have our first types. AppDiv has been and always will be and HtmlElement class, with specific methods and properties
+						  but as far as js was concerned, those things only mattered at runtime.
+						- We can jump to the definition of the html element class, and find things, like the name of the innerHTML method
+						- Now, we can see what we've always been dealing with, but its clear during development and compile time.
+						- The constructor takes a shortcut, if you use the esnext access modifiers we get private, public, protected, etc. and it
+						  also automatically makes that argument a property of the class. Show it
+					  - The greet method is similar, but the string argument now specifies a string
 						- Part of the reason you don't see many differences is because typescript is also smart enough to do type inference
 						- Type inference says if you make a variable equal to a string, let's infer that it's a string. If you have a function
 						   that returns a promise, then let's assume it returns a promise. Which brings me to my next example. What if we wanted
 							 to get this greet value from an async service (like a rest api). Well, we could start by creating a promise that returns
-							 our value
+							 our value.
+				    - As we go down, now you can start to see the typescript action, it's complaining about the string array.
+						- the typed array indicates that this array is designed to only hold strings, and currently it's not
+						- so lets refactor a little, automatically change the people to "goodPeople"
+						- and then everything works again and doesnt complain. In this case, codesandbox is compiling the ts
+						  in spite of the errors, typically this wouldnt be the case for lots of projects.
+						- And now when we try to call non existent methods, we get errors
+						- and we get errors if we dont supply the required constructor argument.
 					</aside>
 				</section>
 
@@ -282,7 +317,7 @@
 				</section>
 
 				<section>
-					<iframe data-preload data-src="https://codesandbox.io/s/typescript-starter-1hlrg?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+					<iframe src="https://codesandbox.io/s/typescript-starter-1hlrg?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
 							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
 					</iframe>
 
@@ -296,7 +331,7 @@
 				</section>
 
 				<section>
-					<iframe data-preload data-src="https://codesandbox.io/s/nest-typescript-starter-rxz0l?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+					<iframe src="https://codesandbox.io/s/nest-typescript-starter-rxz0l?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
 							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
 					</iframe>
 
@@ -386,12 +421,15 @@
 					</aside>
 				</section>
 
-				<section data-background-transition="zoom" data-background-image="images/waterworld.jpg" data-background-size="100% 100%" class="cm-title">
+				<section data-background-transition="zoom" data-background-image="images/hermione.gif" data-background-size="100% 100%" class="cm-title">
 					<div style="color: #000; padding: 20px;" class="top">
-						<h2 class="meme"><del>dry land</del> typescript takes longer</h2>
+						<h2 class="meme meme-small">fear of <del>a name</del> only increases</h2>
+					</div>
+					<div style="color: #000; padding: 20px;  top: 59px !important; text-align: left; padding-left: 251px;" class="top">
+						<h2 class="meme meme-small">typescript</h2>
 					</div>
 					<div style=" color: #000; padding: 20px;" class="bottom">
-						<h2 class="meme">is a myth</h2>
+						<h2 class="meme meme-small">fear of the thing itself</h2>
 					</div>
 
 					<aside class="notes">
@@ -404,7 +442,7 @@
 				</section>
 
 
-				<section data-transition="slide-in" data-background-video="images/simpsons_fail.mp4" data-background-video-loop data-background-video-muted class="cm-title">
+				<section data-transition="slide-in" data-background-video="images/simpsons_fail.mp4" data-background-video-loop data-background-video-muted class="cm-title simpsons-fail">
 					<div style="color: #000; padding: 20px;" class="top">
 					 <h2 class="meme">When things fail</h2>
 				 	</div>
@@ -415,6 +453,17 @@
 						- But many times, its actually an error that typescript has caught, but the wording in the error is so confusing that it makes you think you have a bigger problem, lol.
 						- Sometimes it can be a problem with inferred classes, sometimes the compiler doesn't guess the right types, and you
 						have to help it.
+					</aside>
+				</section>
+
+				<section>
+					<h2> Questions </h2>
+					<img src="images/chris-profile.jpg" class="avatar" />
+					<h5 style="text-transform:lowercase;">@chrismarx</h5>
+					<h5 style="text-transform:lowercase;">http://bit.ly/typepres</h5>
+					<img src="images/zross.png" style="height:100px" class="nostyle plain"/>
+					<aside class="notes">
+						Thank you
 					</aside>
 				</section>
 
