@@ -293,7 +293,8 @@
 						- We have our first types. AppDiv has been and always will be and HtmlElement class, with specific methods and properties
 						  but as far as js was concerned, those things only mattered at runtime.
 						- We can jump to the definition of the html element class, and find things, like the name of the innerHTML method
-						- Now, we can see what we've always been dealing with, but its clear during development and compile time.
+						- Now, we can see what we've always been dealing with, but its clear during development and compile time. We
+						even get autocomplete for the properties and methods.
 						- The constructor takes a shortcut, and if you use the esnext (stage 3) access modifiers we get private, public, protected, etc. and it
 						  also automatically makes that argument a property of the class. Show it
 					  - The greet method is similar, but the string argument now specifies a string
@@ -337,7 +338,7 @@
 						to get this greet value from an async service (like a rest api). Well, we could start by creating a promise that returns
 						our value. Look at the quick view of info about promise, maybe go to definition.
 						- Then use the promise.
-						- what about getting our greeting asynchronously
+						- what about getting our greeting asynchronously, show the async/await features that are transpiler features
 						- ok how about from a real rest api service?
 						- We can do that pretty quickly too
 
@@ -354,7 +355,7 @@
 						  is my favorite typescript backend web framework.
 						- So Lets enable cors
 						- How about we return some json, so we'll do getName, but immediately we can see our project has problems, because
-						  we haven't implemented that method in our service layer.
+						  we haven't implemented that method in our service layer. Try jumping to file. 
 						- What about some expectation of what we're going to get back? We can "type" our response as a person object.
 						- And we can add person to our client side project (ah the wonders of the same language on both sides)
 						- And now we can get the json response from our rest api, and even know what to expect, since we're asserting
@@ -362,6 +363,7 @@
 						- Lets look at the lower level method, and what if we didnt have the imports? Remove and add @Res
 						- maybe do a quick looks at what generics are with arrays of peoples coming back in responses.
 						- I would be remisce if we didn't at least look at generics,
+						- The decorators here belong in the class of just future js features but having them work today.
 					</aside>
 				</section>
 
