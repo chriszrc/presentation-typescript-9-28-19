@@ -147,6 +147,17 @@
 			.typescript-any.slide-background video{
 				object-fit: contain;
 			}
+
+			.no-pad{
+				padding:0;
+			}
+
+			.reveal iframe {
+				max-width: 200% !important;
+				max-height: 200% !important;
+				width:110%;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -159,6 +170,7 @@
 					<h5 style="text-transform:lowercase;">http://bit.ly/typepres</h5>
 					<img src="images/zross.png" style="height:100px" class="nostyle plain"/>
 					<aside class="notes">
+						PRELOAD THE SLIDES!!!!!!!
 						Hi, I'm chris marx, slides are up now at that link. and quick plug, For those that don't know I work at zev ross
 						 spatial analysis, we're a local consulting group, we specialize in data science and geospatial or GIS projects, and
 						 of course web development?. Show website, we've got an updated project page where you can go see some of the projects
@@ -190,9 +202,10 @@
 					</div>
 
 					<aside class="notes">
-						Well, when i say super powers, I mean more from like 2005 (the year Serenity was released),
+						Ok, well, but more serisouly, when i say super powers, I mean more from like super powers from 2005
+						(the year Serenity was released),<br/><br/>
 						since we’re not actually talking about anything very new if you are comparing
-						this with java or c# or c++, or any statically typed language with good ide tooling.
+						this with java or c# or c++, or any statically typed language with good ide tooling.<br/><br/>
 						And originally, people ridiculed typescript, saying why dont we just use the languages we
 						already have, but both google (with atscript) and microsoft saw that people were using js
 						and that an improved js could have a future.
@@ -207,14 +220,13 @@
 
 					<aside class="notes">
 						Quick so throwback first, I gave a talk here 2 years ago about angular, and took the opporutnity to also
-						champion typescript, and at the time it felt like a big limb that angular was climbing out on to.
+						champion typescript, and at the time it felt like a big limb that angular was climbing out on to.<br/><br/>
 						But today, typescript is taking over, with major libraries and projects using or supporting it.
-						(anyone use vs code (you've already got typescript support built right in)?
+						(anyone use vs code (you've already got typescript support built right in)?<br/><br/>
 						 Rxjs? Angular, vue, ionic,  nativescript, typeorm, nestjs, even redux for react )
-						being written in typescript, and id say most major libaries (think d3, etc) have fairly up to date typings for the projects.
+						being written in typescript, and id say most major libaries (think d3, etc) have fairly up to date typings for the projects.<br/><br/>
 						I’m the last person to push a microsoft project, I still use atom,
-						use ms for nothing, but this project is wonderful.
-
+						use ms for nothing, but this project is wonderful.<br/><br/>
 						How many people are using typescript? How many are interested in using it? How about
 						using it with angular? vue?  react? node?
 					</aside>
@@ -229,14 +241,15 @@
 
 					<aside class="notes">
 							Typescript is currently 10th most popular language for 2019. It's the third most
-							loved languages and fourth most wanted. It's also right at the top for fastest growing.
+							loved languages and fourth most wanted. It's also right at the top for fastest growing.<br/><br/>
 							The downloads on npm show typescript is being downloaded
-							and use wayyyy more than flow (the main competition), and is even being downloaded more than babel or react.
+							and use wayyyy more than flow (the main competition), and is even being downloaded more than babel or react.<br/><br/>
 
 							Part of me is surprised, but then again angular is already written in typescript,
 							And vue 3 is being rewritten entirely in typescript, Typescript has already
 							 been supported as a built in option for vue since v2, but now the typescript experience
-							  in vue is going to get a whole lot better. Seems like React has been slower to adopt typescript,
+							  in vue is going to get a whole lot better. <br/><br/>
+							Seems like React has been slower to adopt typescript,
 								 afaik because facebook has been promoting flow, which is an alternate strategy for typing,
 								but isn’t nearly as nice. However, now, even facebook create-react-app has added a tyepscript option so
 							the hard parts of getting started with typescript are done for you.
@@ -253,61 +266,61 @@
 					<aside class="notes">
 							1. Ok, so what the heck is typescript. First off, it is a superset of javascript.
 							That means all javascript is valid typescript, and unless you enable stricter typing, with no anys, no nulls, etc.,
-							you can take your javascript and put it in a ts file, and transpile it, and run it and away you go.
+							you can take your javascript and put it in a ts file, and transpile it, and run it and away you go.<br/><br/>
 							2. A type checker? Ok, let's see what these types are all about.
 					</aside>
 				</section>
 
-				<section>
+				<section class="no-pad">
 					<iframe src="https://codesandbox.io/s/great-yonath-cyxuc?fontsize=20" title="Javascript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
+							style="width:110%; height:87vh; border:0; border-radius: 4px; overflow:hidden; margin-left:-40px;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
 					</iframe>
 
 					<aside class="notes">
-						- except, before we look at types, lets just look at a vanilla es6 mini app here
+						- except, before we look at types, lets just look at a vanilla es6 mini app here<br/>
 						- this is codesandbox.io, and its basically vs code in the browser. and using it here
 						  so I can keep all the code samples in the presentation, rather than jumping out to atom.
-							It also makes it ridicusouly easy to start a new project. (hit the plus button, show server side too)
-						- we've got a greeter class, with a constructor and one method, this is all just es6
-						- we can instantiate a new instance of our class, and call that one method, and update our app, and now we're greeting chris
+							It also makes it ridicusouly easy to start a new project. (hit the plus button, show server side too)<br/>
+						- we've got a greeter class, with a constructor and one method, this is all just es6<br/>
+						- we can instantiate a new instance of our class, and call that one method, and update our app, and now we're greeting chris<br/>
 						- ok, lets make it just a tiny bit more interesting, lets have a list of people we want to greet
 						  and every second greet a new person. We can do that really easily with a little rxjs magic. for
-							those people not using rxjs, you can think of it as a way to handle a stream of promises.
+							those people not using rxjs, you can think of it as a way to handle a stream of promises.<br/>
 						- in this case, we kinda faking the promise part, but you could image you were getting a new value asynchronously
-						  every second, and than we have to do something with it.
-						- Immediately we can see problems with this. Javascript doesnt care about adding numbers and strings
-						- It doesnt care about sending things that are not strings to our function thats only setup to deal with strings
-						- and if we uncomment the end, it wont complain about non existent methods until runtime
-						- and will fail with undefined if we forget the mandatory constructor argument.
+						  every second, and than we have to do something with it.<br/>
+						- Immediately we can see problems with this. Javascript doesnt care about adding numbers and strings<br/>
+						- It doesnt care about sending things that are not strings to our function thats only setup to deal with strings<br/>
+						- and if we uncomment the end, it wont complain about non existent methods until runtime<br/>
+						- and will fail with undefined if we forget the mandatory constructor argument.<br/>
 					</aside>
 				</section>
 
-				<section>
+				<section class="no-pad">
 					<iframe src="https://codesandbox.io/s/typescript-starter-tf3v9?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
+							style="width:110%; height:87vh; border:0; border-radius: 4px; overflow:hidden; margin-left:-40px;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
 					</iframe>
 
 					<aside class="notes">
-						- Ok, now let's look at the typescript version. Not very different.
-						- We can see a few differences, we have class properties with is an es7 feature i believe, I'll talk about typescript as a transpiler next.
+						- Ok, now let's look at the typescript version. Not very different.<br/>
+						- We can see a few differences, we have class properties with is an es7 feature i believe, I'll talk about typescript as a transpiler next.<br/>
 						- We have our first types. AppDiv has been and always will be and HtmlElement class, with specific methods and properties
-						  but as far as js was concerned, those things only mattered at runtime.
-						- We can jump to the definition of the html element class, and find things, like the name of the innerHTML method
+						  but as far as js was concerned, those things only mattered at runtime.<br/>
+						- We can jump to the definition of the html element class, and find things, like the name of the innerHTML method<br/>
 						- Now, we can see what we've always been dealing with, but its clear during development and compile time. We
-						even get autocomplete for the properties and methods.
+						even get autocomplete for the properties and methods.<br/>
 						- The constructor takes a shortcut, and if you use the esnext (stage 3) access modifiers we get private, public, protected, etc. and it
-						  also automatically makes that argument a property of the class. Show it
-					  - The greet method is similar, but the string argument now specifies a string
-						- Part of the reason you don't see many differences is because typescript is also smart enough to do type inference
+						  also automatically makes that argument a property of the class. Show it<br/>
+					  - The greet method is similar, but the string argument now specifies a string<br/>
+						- Part of the reason you don't see many differences is because typescript is also smart enough to do type inference<br/>
 						- Type inference says if you make a variable equal to a string, let's infer that it's a string. If you have a function
-						   that returns a promise, then let's assume it returns a promise.
-				    - As we go down, now you can start to see the typescript action, it's complaining about the string array.
-						- the typed array indicates that this array is designed to only hold strings, and currently it's not
-						- so lets refactor a little, automatically change the people to "goodPeople"
+						   that returns a promise, then let's assume it returns a promise.<br/>
+				    - As we go down, now you can start to see the typescript action, it's complaining about the string array.<br/>
+						- the typed array indicates that this array is designed to only hold strings, and currently it's not<br/>
+						- so lets refactor a little, automatically change the people to "goodPeople"<br/>
 						- and then everything works again and doesnt complain. In this case, codesandbox is compiling the ts
-						  in spite of the errors, typically this wouldnt be the case for lots of projects.
-						- And now when we try to call non existent methods, we get errors
-						- and we get errors if we dont supply the required constructor argument.
+						  in spite of the errors, typically this wouldnt be the case for lots of projects.<br/>
+						- And now when we try to call non existent methods, we get errors<br/>
+						- and we get errors if we dont supply the required constructor argument.<br/>
 					</aside>
 				</section>
 
@@ -320,9 +333,10 @@
 					</ol>
 
 					<aside class="notes">
-							- A transpiler (like Babel), you get to write the javascript of tomorrow (es6/7/8/9/+) today. Async/await, decorators, class properties, access modifiers (public, private, protected,
-							help us implement Encapsulation, typescript has stated that they are likely to implement stage 3 js proposals (though we’re still waiting on optional chaining).
-
+							- A transpiler (like Babel), you get to write the javascript of tomorrow (es6/7/8/9/+) today.
+							 Async/await, decorators, class properties, access modifiers (public, private, protected,
+							help us implement Encapsulation.<br/><br/>
+							- typescript has stated that they are likely to implement stage 3 js proposals (though we’re still waiting on optional chaining).<br/><br/>
 							- Additional language features like interfaces, abstract classes, enums, types that support generics, better class features,
 							 everything you expect coming from java or other statically typed languages.
 					</aside>
@@ -330,40 +344,41 @@
 
 				<section>
 					<iframe src="https://codesandbox.io/s/typescript-starter-1hlrg?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
+							style="width:110%; height:87vh; border:0; border-radius: 4px; overflow:hidden; margin-left:-40px;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
 					</iframe>
 
 					<aside class="notes">
 						Which brings me to my next example. What if we wanted
-						to get this greet value from an async service (like a rest api). Well, we could start by creating a promise that returns
-						our value. Look at the quick view of info about promise, maybe go to definition.
-						- Then use the promise.
-						- what about getting our greeting asynchronously, show the async/await features that are transpiler features
-						- ok how about from a real rest api service?
-						- We can do that pretty quickly too
+						to get this greet value from an async service (like a rest api). <br/><br/>
+						Well, we could start by creating a promise that returns
+						our value. Look at the quick view of info about promise, maybe go to definition.<br/><br/>
+						- Then use the promise.<br/>
+						- what about getting our greeting asynchronously, show the async/await features that are transpiler features<br/>
+						- ok how about from a real rest api service?<br/>
+						- We can do that pretty quickly too<br/>
 
 					</aside>
 				</section>
 
-				<section>
+				<section class="no-pad">
 					<iframe src="https://codesandbox.io/s/nest-typescript-starter-rxz0l?fontsize=20" title="TypeScript starter" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-							style="width:100%; height:64vh; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
+							style="width:110%; height:87vh; border:0; border-radius: 4px; overflow:hidden; margin-left:-40px;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin">
 					</iframe>
 
 					<aside class="notes">
 						- Sure, here's the default nestjs cli generated project you get when you hit the plus button and select nestjs, which
-						  is my favorite typescript backend web framework.
-						- So Lets enable cors
+						  is my favorite typescript backend web framework.<br/>
+						- So Lets enable cors<br/>
 						- How about we return some json, so we'll do getName, but immediately we can see our project has problems, because
-						  we haven't implemented that method in our service layer. Try jumping to file. 
-						- What about some expectation of what we're going to get back? We can "type" our response as a person object.
-						- And we can add person to our client side project (ah the wonders of the same language on both sides)
+						  we haven't implemented that method in our service layer. Try jumping to file.<br/>
+						- What about some expectation of what we're going to get back? We can "type" our response as a person object.<br/>
+						- And we can add person to our client side project (ah the wonders of the same language on both sides)<br/>
 						- And now we can get the json response from our rest api, and even know what to expect, since we're asserting
-						  that the responses will be person objects.
-						- Lets look at the lower level method, and what if we didnt have the imports? Remove and add @Res
-						- maybe do a quick looks at what generics are with arrays of peoples coming back in responses.
-						- I would be remisce if we didn't at least look at generics,
-						- The decorators here belong in the class of just future js features but having them work today.
+						  that the responses will be person objects.<br/>
+						- Lets look at the lower level method, and what if we didnt have the imports? Remove and add @Res<br/>
+						- maybe do a quick looks at what generics are with arrays of peoples coming back in responses.<br/>
+						- I would be remisce if we didn't at least look at generics,<br/>
+						- The decorators here belong in the class of just future js features but having them work today.<br/>
 					</aside>
 				</section>
 
@@ -408,8 +423,10 @@
 					</div>
 
 					<aside class="notes">
-						Now i could talk to you about the mars orbiter satellite, a 125 million dollar satellite that crashed into the mars atmosphere in 1999 because of a type error in the code (pounds of force were used as newtons (english vs metric)),
-						and how typescript will help you create better code for mission critical systems, but the reality is that most of us aren’t really working on systems like that.
+						Now i could talk to you about the mars orbiter satellite, a 125 million dollar satellite that crashed into the mars atmosphere in 1999 <br/>
+						because of a type error in the code (pounds of force were used as newtons (english vs metric)),<br/>
+						and how typescript will help you create better code for mission critical systems, but the reality is that most of us aren’t really working<br/>
+						 on systems like that.<br/>
 						 The real reason is that its just fun (inside out, gotta find the fun)
 					</aside>
 				</section>
@@ -423,9 +440,9 @@
 					</div>
 
 					<aside class="notes">
- 						The real reason is that its just fun (inside out, gotta find the fun). You get all the shiny
-						new toys in javascript, and you can make changes and feel like you're not going to break everything,
-						you can find a new thing to master, which is try to make everything as type safe as possible (within limits).
+ 						The real reason is that its just fun (inside out, gotta find the fun). <br/>
+						You get all the shiny new toys in javascript, and you can make changes and feel like you're not going to break everything,<br/>
+						you can find a new thing to master, which is try to make everything as type safe as possible (within limits).<br/>
 						And it only makes you feel better about rapidly developing your projects, especially when coming back to them later.
 					</aside>
 				</section>
@@ -442,10 +459,14 @@
 					</div>
 
 					<aside class="notes">
-						Ok, but people will say, but it takes longer because you have more typing. I think this is 100% wrong.
-						People will say it takes longer because you get errors. This is true, but you get the errors faster, and you arent waiting for an app to reload, and see errors in the javascript console or node terminal process. Seeing the errors while you type make it much faster overall
-						People will its harder to debug - wrong again, the support for debugging typescript is excellent with sourcemaps, you can debug your typescript right from the dev tools
-						“It’s only for big projects” - NO! Everytime I have to work on a non typescript project, i now pull my hair out at the lack of support for all of the above, especially auto completion and jumping to documentation.
+						Ok, but people will say, but it takes longer because you have more typing. <br/>
+						I think this is 100% wrong.<br/>
+						People will say it takes longer because you get errors. This is true, but you get the errors faster, and you arent waiting for an app to reload, and see errors in the javascript console or node terminal process.<br/>
+						Seeing the errors while you type make it much faster overall<br/>
+						People will its harder to debug - wrong again, the support for debugging typescript is excellent with sourcemaps,<br/>
+						 you can debug your typescript right from the dev tools<br/>
+						“It’s only for big projects” - NO! Everytime I have to work on a non typescript project, <br/>
+						i now pull my hair out at the lack of support for all of the above, especially auto completion and jumping to documentation.
 					</aside>
 				</section>
 
@@ -456,10 +477,10 @@
 				 	</div>
 
 					<aside class="notes">
-						- Sometimes things do go wrong.
-						- But many times, its actually an error that typescript has caught, but the wording in the error is so confusing that it makes you think you have a bigger problem, lol.
-						- Sometimes it can be a problem with inferred classes, sometimes the compiler doesn't guess the right types, and you have to help it.
-						-  Typings are out of date, so you have to any it, or work on pushing new typings. What are typings?
+						- Sometimes things do go wrong.<br/>
+						- But many times, its actually an error that typescript has caught, but the wording in the error is so confusing that it makes you think you have a bigger problem, lol.<br/>
+						- Sometimes it can be a problem with inferred classes, sometimes the compiler doesn't guess the right types, and you have to help it.<br/>
+						-  Typings are out of date, so you have to any it, or work on pushing new typings. What are typings?<br/>
 					</aside>
 				</section>
 
